@@ -1,0 +1,182 @@
+{
+  "name": "ixiac01",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-bffde02c382e",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "2001:172:20:20::/64",
+        "ipv6-gw": "2001:172:20:20::1",
+        "mtu": 1500,
+        "external-access": true
+      }
+    }
+  },
+  "nodes": {
+    "ixia-c": {
+      "index": "0",
+      "shortname": "ixia-c",
+      "longname": "clab-ixiac01-ixia-c",
+      "fqdn": "ixia-c.ixiac01.io",
+      "group": "",
+      "labdir": "/etc/containerlab/lab-examples/ixiac03/clab-ixiac01/ixia-c",
+      "kind": "keysight_ixia-c-one",
+      "image": "ghcr.io/open-traffic-generator/ixia-c-one:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-bffde02c382e",
+        "clab-node-group": "",
+        "clab-node-kind": "keysight_ixia-c-one",
+        "clab-node-lab-dir": "/etc/containerlab/lab-examples/ixiac03/clab-ixiac01/ixia-c",
+        "clab-node-name": "ixia-c",
+        "clab-node-type": "",
+        "clab-topo-file": "/etc/containerlab/lab-examples/ixiac03/ixiac01.clab.yml",
+        "containerlab": "ixiac01"
+      },
+      "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 40051,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 50051,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 8443,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 2375,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 2376,
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "srl1": {
+      "index": "1",
+      "shortname": "srl1",
+      "longname": "clab-ixiac01-srl1",
+      "fqdn": "srl1.ixiac01.io",
+      "group": "",
+      "labdir": "/etc/containerlab/lab-examples/ixiac03/clab-ixiac01/srl1",
+      "kind": "nokia_srlinux",
+      "image": "ghcr.io/nokia/srlinux:23.10.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "1a:35:01:00:00:00",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-bffde02c382e",
+        "clab-node-group": "",
+        "clab-node-kind": "nokia_srlinux",
+        "clab-node-lab-dir": "/etc/containerlab/lab-examples/ixiac03/clab-ixiac01/srl1",
+        "clab-node-name": "srl1",
+        "clab-node-type": "ixrd2l",
+        "clab-topo-file": "/etc/containerlab/lab-examples/ixiac03/ixiac01.clab.yml",
+        "containerlab": "ixiac01"
+      },
+      "port-bindings": [
+      ]
+    },
+    "srl2": {
+      "index": "2",
+      "shortname": "srl2",
+      "longname": "clab-ixiac01-srl2",
+      "fqdn": "srl2.ixiac01.io",
+      "group": "",
+      "labdir": "/etc/containerlab/lab-examples/ixiac03/clab-ixiac01/srl2",
+      "kind": "nokia_srlinux",
+      "image": "ghcr.io/nokia/srlinux:23.10.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:20:20::4",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "1a:04:02:00:00:00",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-bffde02c382e",
+        "clab-node-group": "",
+        "clab-node-kind": "nokia_srlinux",
+        "clab-node-lab-dir": "/etc/containerlab/lab-examples/ixiac03/clab-ixiac01/srl2",
+        "clab-node-name": "srl2",
+        "clab-node-type": "ixrd2l",
+        "clab-topo-file": "/etc/containerlab/lab-examples/ixiac03/ixiac01.clab.yml",
+        "containerlab": "ixiac01"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "a": {
+        "node": "ixia-c",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:a8:f1:5f",
+        "peer": "z"
+      },
+      "z": {
+        "node": "srl1",
+        "interface": "e1-1",
+        "mac": "aa:c1:ab:02:d2:d2",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "srl1",
+        "interface": "e1-2",
+        "mac": "aa:c1:ab:cc:04:ab",
+        "peer": "z"
+      },
+      "z": {
+        "node": "srl2",
+        "interface": "e1-1",
+        "mac": "aa:c1:ab:0e:79:1a",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "srl2",
+        "interface": "e1-2",
+        "mac": "aa:c1:ab:30:f2:b7",
+        "peer": "z"
+      },
+      "z": {
+        "node": "ixia-c",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:cb:79:5c",
+        "peer": "a"
+      }
+    }
+  ]
+}
